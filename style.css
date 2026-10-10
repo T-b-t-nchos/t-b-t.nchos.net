@@ -21,15 +21,8 @@
 }
 @font-face {
     font-family: "Noto Emoji";
-    src: url("./assets/fonts/NotoEmoji-Regular.ttf") format("truetype");
+    src: url("./assets/fonts/NotoEmoji-Regular-subset.woff2") format("woff2");
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Noto Emoji";
-    src: url("./assets/fonts/NotoEmoji-Bold.ttf") format("truetype");
-    font-weight: 700;
     font-style: normal;
     font-display: swap;
 }

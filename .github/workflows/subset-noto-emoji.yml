@@ -1,0 +1,138 @@
+name: "🔤 | Subset Noto Emoji"
+
+on:
+  push:
+    paths:
+      - "**/*.txt"
+      - "**/*.json"
+      - "**/*.html"
+      - "**/*.css"
+      - "**/*.js"
+      - "assets/fonts/NotoEmoji-Regular.ttf"
+      - ".github/workflows/subset-noto-emoji.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: subset-noto-emoji
+  cancel-in-progress: true
+
+jobs:
+  subset:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: python -m pip install fonttools brotli
+
+      - name: Extract text and generate subset
+        shell: python
+        run: |
+          import re
+          import subprocess
+          from pathlib import Path
+
+          root = Path(".").resolve()
+          font = root / "assets/fonts/NotoEmoji-Regular.ttf"
+          output = root / "assets/fonts/NotoEmoji-Regular-subset.woff2"
+          text_file = root / "noto-emoji-text.txt"
+
+          extensions = {".txt", ".json", ".html", ".css", ".js"}
+          excluded_dirs = {
+              ".git",
+              "node_modules",
+              ".next",
+              "dist",
+              "build",
+          }
+
+          if not font.is_file():
+              raise FileNotFoundError(f"Font not found: {font}")
+
+          texts = []
+
+          for path in root.rglob("*"):
+              if not path.is_file() or path.suffix.lower() not in extensions:
+                  continue
+
+              relative = path.relative_to(root)
+
+              if any(part in excluded_dirs for part in relative.parts):
+                  continue
+
+              if path == text_file or path == output:
+                  continue
+
+              content = path.read_text(encoding="utf-8", errors="replace")
+              texts.append(content)
+
+          source = "\n".join(texts)
+
+          # Decode JavaScript-style Unicode escapes.
+          source = re.sub(
+              r"\\u\{([0-9a-fA-F]{1,6})\}",
+              lambda m: chr(int(m.group(1), 16))
+              if int(m.group(1), 16) <= 0x10FFFF
+              else m.group(0),
+              source,
+          )
+
+          source = re.sub(
+              r"\\u([0-9a-fA-F]{4})",
+              lambda m: chr(int(m.group(1), 16)),
+              source,
+          )
+
+          # Combine UTF-16 surrogate pairs.
+          source = source.encode("utf-16", "surrogatepass").decode(
+              "utf-16", "replace"
+          )
+
+          text_file.write_text(source, encoding="utf-8")
+
+          output.parent.mkdir(parents=True, exist_ok=True)
+
+          subprocess.run(
+              [
+                  "python",
+                  "-m",
+                  "fontTools.subset",
+                  str(font),
+                  f"--text-file={text_file}",
+                  "--flavor=woff2",
+                  f"--output-file={output}",
+              ],
+              check=True,
+          )
+
+          print(f"Source files scanned: {len(texts)}")
+          print(f"Generated font: {output}")
+          print(f"Generated size: {output.stat().st_size:,} bytes")
+
+          text_file.unlink(missing_ok=True)
+
+      - name: Commit generated font
+        shell: bash
+        run: |
+          git add assets/fonts/NotoEmoji-Regular-subset.woff2
+
+          if git diff --cached --quiet; then
+            echo "No changes to the generated font."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -m "bot: update Noto Emoji subset"
+          git push
