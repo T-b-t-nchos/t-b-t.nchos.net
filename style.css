@@ -131,21 +131,20 @@ a {
     Arial,
     sans-serif;
     font-weight: 800;
-    line-height: 0.78;
     user-select: none;
     pointer-events: none;
 }
 
 .shape-n {
-    top: -17vw;
-    left: -7vw;
-    font-size: 34vw;
+    top: -16vw;
+    left: -5vw;
+    font-size: 27vw;
 }
 
 .shape-t {
-    right: -5vw;
-    bottom: -14vw;
-    font-size: 34vw;
+    right: -3vw;
+    bottom: -15vw;
+    font-size: 27vw;
 }
 
 .hero-content {
