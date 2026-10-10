@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Zilla Slab";
-    src: url("./assets/fonts/ZillaSlab-Light.ttf") format("truetype");
+    src: url("./assets/fonts/ZillaSlab-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "Zilla Slab";
-    src: url("./assets/fonts/ZillaSlab-Regular.ttf") format("truetype");
+    src: url("./assets/fonts/ZillaSlab-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
