@@ -35,7 +35,7 @@
 }
 @font-face {
     font-family: "LINE Seed JP";
-    src: url("./assets/fonts/LINESeedJP-ExtraBold.ttf") format("truetype");
+    src: url("./assets/fonts/LINESeedJP-ExtraBold-subset.woff2") format("woff2");
     font-weight: 800;
     font-style: normal;
     font-display: swap;
