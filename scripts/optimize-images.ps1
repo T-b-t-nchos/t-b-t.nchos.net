@@ -1,7 +1,7 @@
 param(
-    [string]$Root = "..\assets",
-    [int]$MaxWidth = 1280,
-    [int]$MaxHeight = 1280,
+    [string]$Root = "..\assets\works",
+    [int]$MaxWidth = 780,
+    [int]$MaxHeight = 780,
     [int]$Quality = 82,
     [switch]$Apply
 )
