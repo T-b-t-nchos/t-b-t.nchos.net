@@ -261,6 +261,7 @@ a {
     border-top: 1px solid var(--line);
     color: var(--ink);
     text-decoration: none;
+    text-autospace: normal;
     transition:
     padding-left 0.4s ease,
     background-color 0.4ms ease,
