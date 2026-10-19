@@ -48,6 +48,12 @@ window.linksData = [
                 url: "https://pgp.nchos.net/",
                 ariaLabel: "View PGP public keys page"
             },
+            {
+                title: "E-mail",
+                description: "contact@nchos.net",
+                url: "mailto:contact@nchos.net",
+                arieLabel: "Send an email"
+            },
         ]
     }
 ];
