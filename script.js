@@ -240,24 +240,39 @@ function createLinks() {
 
     container.innerHTML = "";
 
-    window.linksData.forEach((link, index) => {
-        const element = document.createElement("a");
-        element.className = "list-item";
-        element.href = link.url;
-        element.setAttribute("aria-label", link.ariaLabel);
+    window.linksData.forEach((category) => {
+        const heading = document.createElement("h3");
+        heading.textContent = `◇ ${category.category}`;
 
-        element.innerHTML = `
-            <div class="list-index">${String(index + 1).padStart(2, "0")}</div>
+        const list = document.createElement("div");
+        list.className = "list";
 
-            <div class="list-content">
-                <h2>${link.title}</h2>
-                <p>${link.description}</p>
-            </div>
+        category.items.forEach((link, index) => {
+            const element = document.createElement("a");
+            element.className = "list-item";
+            element.href = link.url;
+            element.setAttribute("aria-label", link.ariaLabel);
 
-            <span class="list-view">VIEW →</span>
-        `;
+            element.innerHTML = `
+                <div class="list-index">${String(index + 1).padStart(2, "0")}</div>
 
-        container.appendChild(element);
+                <div class="list-content">
+                    <h2>${link.title}</h2>
+                    <p>${link.description}</p>
+                </div>
+
+                <span class="list-view">VIEW →</span>
+            `;
+
+            list.appendChild(element);
+        });
+
+        container.appendChild(heading);
+        container.appendChild(list);
+
+        if (category !== window.linksData[window.linksData.length - 1]) {
+            container.insertAdjacentHTML("beforeend", "<br><br>");
+        }
     });
 }
 
