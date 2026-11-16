@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Theme switch -->
+        <script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch{}</script>
+
+        <title>Privacy Policy | T-b-t-nchos</title>
+
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/favicon.ico">
+
+        <meta name="description" content="T-b-t-nchos/Nchos Website. - Privacy Policy">
+        <meta name="robots" content="noindex">
+        <meta name="author" content="T-b-t-nchos">
+        <meta name="theme-color" content="#111211">
+        <meta name="color-scheme" content="light dark">
+
+<style>
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    background: var(--page-bg);
+    color: var(--ink);
+
+    font-family: "Zilla Slab", "Kiwi Maru", "Noto Emoji", serif;
+}
+</style>
+    </head>
+
+    <body>
+        <main>
+            <section class="section" id="privacy-policy-ja" lang="ja">
+                <div class="section-inner">
+                    <header class="section-heading">
+                        <a href="#privacy-policy-ja"><span class="section-label">◆ Privacy Policy (Japanese)</span></a>
+                    </header>
+                    <div class="text-content">
+                        <div class="text-content-lv1">
+                            <pre id="privacy-policy-content-ja">Loading...</pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="privacy-policy-en" lang="en">
+                <div class="section-inner">
+                    <header class="section-heading">
+                        <a href="#privacy-policy-en"><span class="section-label">◆ Privacy Policy (English)</span></a>
+                    </header>
+                    <div class="text-content">
+                        <div class="text-content-lv1">
+                            <pre id="privacy-policy-content-en">Loading...</pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <a class="hv-ul only-emoji" id="toggle-light-dark" href="#toggle-light-dark">💡</a> |
+            <a class="hv-ul" href="https://github.com/T-b-t-nchos/T-b-t-nchos.github.io">Source of this page</a> |
+            <a class="hv-ul" href="/privacy/">Privacy Policy</a> |
+            <a class="hv-ul only-emoji" href="/teapot">🫖</a>
+            <p class="copyright">© 2026 T-b-t-nchos. All rights reserved.</p>
+        </footer>
+
+        <script src="/script.js"></script>
+
+        <!-- Privacy Policy Loader -->
+        <script>
+            (() => {
+                "use strict";
+
+                const policies = [
+                    {
+                        element: document.getElementById("privacy-policy-content-ja"),
+                        file: "./privacy-policy.txt",
+                        error: "プライバシーポリシーを読み込めませんでした。"
+                    },
+                    {
+                        element: document.getElementById("privacy-policy-content-en"),
+                        file: "./privacy-policy-en.txt",
+                        error: "Failed to load the Privacy Policy."
+                    }
+                ];
+
+                async function loadPolicy(policy) {
+                    if (!policy.element) {
+                        return;
+                    }
+
+                    try {
+                        const response = await fetch(policy.file);
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP ${response.status}`);
+                        }
+
+                        policy.element.textContent = await response.text();
+                    } catch (error) {
+                        console.error("Privacy Policy loading error:", error);
+
+                        policy.element.textContent = policy.error;
+                    }
+                }
+
+                policies.forEach(loadPolicy);
+            })();
+        </script>
+    </body>
+</html>

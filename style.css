@@ -208,15 +208,15 @@ a {
 }
 
 
-/*whoami (section)*/
+/*text section (section)*/
 /*-----------------------------------------------------------------------------------------*/
-.whoami-content {
+.text-content {
     position: relative;
     margin-left: 1rem;
     padding-left: 1.5rem;
 }
 
-.whoami-content::before {
+.text-content::before {
     content: "";
     position: absolute;
     z-index: 100;
@@ -227,7 +227,7 @@ a {
     background: var(--line);
 }
 
-.whoami-summary {
+.text-content-lv1 {
     margin: 0;
     font-size: clamp(1rem, 1.2vw, 1.2rem);
     font-weight: 400;
@@ -235,7 +235,7 @@ a {
     letter-spacing: 0.06em;
 }
 
-.whoami-detail {
+.text-content-lv2 {
     color: var(--line);
     padding-top: 0.9rem;
     line-height: 1.2;
@@ -516,6 +516,230 @@ footer .only-emoji {
 }
 
 
+/*Privacy*/
+/*-----------------------------------------------------------------------------------------*/
+#privacy-consent-dialog {
+    position: fixed;
+    inset: auto 20px 20px auto;
+
+    width: min(440px, calc(100vw - 40px));
+    max-height: min(80vh, 720px);
+
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+
+    color: var(--ink);
+    background: var(--page-bg);
+    border: 1px solid var(--line);
+    border-radius: 0.3rem;
+}
+
+#privacy-consent-dialog::backdrop {
+    background: color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+.privacy-consent {
+    padding: clamp(1.4rem, 3vw, 2rem);
+}
+
+/* Header */
+.privacy-consent__en {
+    display: block;
+
+    margin-bottom: 0.4rem;
+
+    color: var(--line);
+    font-family: "Zilla Slab", serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+}
+
+/* Description */
+.privacy-consent__description p {
+    margin: 0 0 1.3rem;
+
+    font-family: "Kiwi Maru", serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+}
+
+.privacy-consent__description p:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-consent__description .privacy-consent__en {
+    margin-bottom: 0.25rem;
+}
+
+.privacy-consent__description a {
+    color: var(--accent);
+}
+
+/* Actions */
+.privacy-consent__actions {
+    display: grid;
+    margin-top: 2rem;
+
+    border-top: 1px solid var(--line);
+}
+
+.privacy-consent button {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+
+    width: 100%;
+    padding: 1rem 0;
+    overflow: hidden;
+
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+
+    font-family: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    transition: padding-left 0.4s ease, color 0.4s ease;
+}
+
+.privacy-consent button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+
+    height: 1px;
+    background: var(--accent);
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.privacy-consent button:hover {
+    padding-left: 0.5rem;
+    color: var(--accent);
+}
+
+.privacy-consent button:hover::after,
+.privacy-consent button:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.privacy-consent button:focus-visible {
+    outline: none;
+}
+
+.privacy-consent__button-en {
+    color: var(--line);
+    font-family: "Zilla Slab", serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+}
+
+.privacy-consent__button-ja {
+    font-family: "Kiwi Maru", serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+}
+
+#privacy-accept { color: var(--accent); }
+
+#privacy-accept .privacy-consent__button-en {
+    color: var(--accent);
+}
+
+/* Settings */
+.privacy-consent__settings-header {
+    margin: 2rem 0 1rem;
+}
+
+.privacy-consent__settings-header h3 {
+    margin: 0;
+
+    font-family: "Kiwi Maru", serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    line-height: 1.4;
+    letter-spacing: 0.08em;
+}
+
+.privacy-consent__option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+
+    padding: 1.2rem 0;
+
+    border-top: 1px solid var(--line);
+
+    cursor: pointer;
+}
+
+.privacy-consent__option:last-of-type {
+    border-bottom: 1px solid var(--line);
+}
+
+.privacy-consent__option input {
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+    accent-color: var(--accent);
+}
+
+.privacy-consent__option-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.privacy-consent__option-content strong {
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.privacy-consent__option-content > span:last-child {
+    font-family: "Kiwi Maru", serif;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
+.privacy-consent__option-content .privacy-consent__en {
+    margin: 0;
+}
+
+#privacy-save {
+    margin-top: 1rem;
+    border-bottom: none;
+    color: var(--accent);
+}
+
+#privacy-save::after {
+    display: none;
+}
+
+#privacy-save:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+}
+
+
 /*other*/
 /*-----------------------------------------------------------------------------------------*/
 .bottom-space {
@@ -643,6 +867,16 @@ footer .only-emoji {
 
     .history-event:nth-child(odd) .history-date {
         justify-content: flex-start;
+    }
+
+    #privacy-consent-dialog {
+        inset: auto 10px 10px 10px;
+        width: auto;
+        max-height: 85vh;
+    }
+
+    .privacy-consent {
+        padding: 18px;
     }
 }
 
