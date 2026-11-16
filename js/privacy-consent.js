@@ -175,6 +175,16 @@
         closeDialog();
     }
 
+    window.addEventListener("storage", (event) => {
+        if (event.key !== STORAGE_KEY) {
+            return;
+        }
+
+        consent = loadConsent();
+
+        window.location.reload();
+    });
+
     acceptButton.addEventListener("click", () => {
         applyConsent(true, true);
     });
