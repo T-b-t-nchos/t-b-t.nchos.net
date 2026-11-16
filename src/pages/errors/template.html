@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <include src="../../components/theme-toggle.html"></include>
+
+        <title>{{ERROR_CODE}} | T-b-t-nchos</title>
+
+        <link rel="stylesheet" href="/style.css">
+        <link rel="icon" href="/favicon.ico">
+
+        <meta name="description" content="T-b-t-nchos/Nchos Website. - {{ERROR_CODE}} Error">
+        <meta name="robots" content="noindex">
+        <meta name="author" content="T-b-t-nchos">
+        <meta name="theme-color" content="#111211">
+        <meta name="color-scheme" content="light dark">
+
+        <script type="module" src="/js/pages/errors.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <section class="hero">
+                <div class="shape shape-n" aria-hidden="true">{{ERROR_FIRST}}</div>
+                <canvas id="particles" aria-hidden="true"></canvas>
+
+                <div class="hero-content">
+                    <h1 class="title fit-text">Error - {{ERROR_CODE}}</h1>
+                    <p class="subtitle fit-text"><a href="/" class="hv-ul">→back to top page</a></p>
+                </div>
+
+                <div class="shape shape-t" aria-hidden="true">{{ERROR_REST}}</div>
+            </section>
+        </main>
+
+        <include src="../../components/footer.html"></include>
+        <include src="../../components/privacy-consent.html"></include>
+    </body>
+</html>
+

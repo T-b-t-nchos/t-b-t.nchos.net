@@ -4,11 +4,11 @@ import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const root = path.resolve(__dirname, "..");
+const root = path.resolve(__dirname, "../../../");
 
 const SITE_URL = "https://t-b-t.nchos.net";
 
-const OUTPUT_FILE = path.join(root, "sitemap.xml");
+const OUTPUT_FILE = path.join(root, "/public/sitemap.xml");
 
 const EXCLUDED_DIRECTORIES = new Set([
     ".git",

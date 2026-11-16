@@ -12,27 +12,35 @@ permissions:
 
 jobs:
   cf-pages:
-      environment:
-          name: cloudflare-pages
-      runs-on: ubuntu-latest
+    environment:
+      name: cloudflare-pages
+    runs-on: ubuntu-latest
 
-      steps:
-          - uses: actions/checkout@v7
+    steps:
+      - uses: actions/checkout@v7
 
-          - name: Deploy Production
-            if: github.ref == 'refs/heads/master'
-            uses: cloudflare/wrangler-action@v4
-            with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-                command: pages deploy . --project-name=t-b-t-nchos --branch=master
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
 
-          - name: Deploy Preview
-            if: github.ref != 'refs/heads/master'
-            uses: cloudflare/wrangler-action@v4
-            with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                gitHubToken: ${{ secrets.GITHUB_TOKEN }}
-                command: pages deploy . --project-name=t-b-t-nchos --branch=${{ github.ref_name }}
+      - name: Build
+        run: npm run build
+
+      - name: Deploy Production
+        if: github.ref == 'refs/heads/master'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy dist --project-name=t-b-t-nchos --branch=master
+
+      - name: Deploy Preview
+        if: github.ref != 'refs/heads/master'
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy dist --project-name=t-b-t-nchos --branch=${{ github.ref_name }}

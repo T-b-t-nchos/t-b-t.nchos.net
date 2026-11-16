@@ -1,34 +1,34 @@
 @font-face {
     font-family: "Zilla Slab";
-    src: url("./assets/fonts/ZillaSlab-Light.woff2") format("woff2");
+    src: url("./fonts/ZillaSlab-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "Zilla Slab";
-    src: url("./assets/fonts/ZillaSlab-Regular.woff2") format("woff2");
+    src: url("./fonts/ZillaSlab-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "Kiwi Maru";
-    src: url("./assets/fonts/KiwiMaru-Regular.woff2") format("woff2");
+    src: url("./fonts/KiwiMaru-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "Noto Emoji";
-    src: url("./assets/fonts/NotoEmoji-Regular-subset.woff2") format("woff2");
+    src: url("./fonts/NotoEmoji-Regular-subset.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: "LINE Seed JP";
-    src: url("./assets/fonts/LINESeedJP-ExtraBold-subset.woff2") format("woff2");
+    src: url("./fonts/LINESeedJP-ExtraBold-subset.woff2") format("woff2");
     font-weight: 800;
     font-style: normal;
     font-display: swap;

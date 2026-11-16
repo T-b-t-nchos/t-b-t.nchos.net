@@ -8,9 +8,9 @@ window.worksData = [
                 description: "Aquarium color scheme, designed for transparent terminal.",
                 url: "https://github.com/T-b-t-nchos/Aquavium.nvim",
                 ariaLabel: "View Aquavium.nvim",
-                image: "./assets/works/programming/Aquavium.nvim/SocialPreview_v2.png",
-                image_avif: "./assets/works/programming/Aquavium.nvim/SocialPreview_v2.avif",
-                image_webp: "./assets/works/programming/Aquavium.nvim/SocialPreview_v2.webp"
+                image: "./works/programming/Aquavium.nvim/SocialPreview_v2.png",
+                image_avif: "./works/programming/Aquavium.nvim/SocialPreview_v2.avif",
+                image_webp: "./works/programming/Aquavium.nvim/SocialPreview_v2.webp"
             },
             {
                 index: "02",
@@ -25,9 +25,9 @@ window.worksData = [
                 description: "Just one color. Nothing else. (Joke.) ",
                 url: "https://github.com/T-b-t-nchos/nothing.nvim",
                 ariaLabel: "View ️nothing.nvim",
-                image: "./assets/works/programming/nothing.nvim/SocialPreview_dark.png",
-                image_avif: "./assets/works/programming/nothing.nvim/SocialPreview_dark.avif",
-                image_webp: "./assets/works/programming/nothing.nvim/SocialPreview_dark.webp"
+                image: "./works/programming/nothing.nvim/SocialPreview_dark.png",
+                image_avif: "./works/programming/nothing.nvim/SocialPreview_dark.avif",
+                image_webp: "./works/programming/nothing.nvim/SocialPreview_dark.webp"
             },
             {
                 index: "04",
@@ -54,9 +54,9 @@ window.worksData = [
                 description: "A promo video for a LT event at the Shonan Fujisawa Kosen Discord campus (sf-kosen, a fictional college)",
                 url: "https://youtu.be/301fBL1R4Mo",
                 ariaLabel: "View promo video of first LT event at sf-kosen",
-                image: "./assets/works/video/sf-kosen-first-lt-PR/Screenshot.png",
-                image_avif: "./assets/works/video/sf-kosen-first-lt-PR/Screenshot.avif",
-                image_webp: "./assets/works/video/sf-kosen-first-lt-PR/Screenshot.webp",
+                image: "./works/video/sf-kosen-first-lt-PR/Screenshot.png",
+                image_avif: "./works/video/sf-kosen-first-lt-PR/Screenshot.avif",
+                image_webp: "./works/video/sf-kosen-first-lt-PR/Screenshot.webp",
                 viewText: "WATCH →"
             }
         ]
@@ -70,9 +70,9 @@ window.worksData = [
                 description: "OGP image for Nandemo-Mondaichou, a practice problem website created by tanahiro2010",
                 url: "https://nandemo.tanahiro2010.com/",
                 ariaLabel: "View OGP of Nandemo-Mondaichou",
-                image: "./assets/works/design/ogp-of-nandemo/og-image.png",
-                image_avif: "./assets/works/design/ogp-of-nandemo/og-image.avif",
-                image_webp: "./assets/works/design/ogp-of-nandemo/og-image.webp"
+                image: "./works/design/ogp-of-nandemo/og-image.png",
+                image_avif: "./works/design/ogp-of-nandemo/og-image.avif",
+                image_webp: "./works/design/ogp-of-nandemo/og-image.webp"
             }
         ]
     }
