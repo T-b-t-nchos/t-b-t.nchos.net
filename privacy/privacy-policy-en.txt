@@ -1,0 +1,119 @@
+Privacy Policy
+
+Last Updated: November 16, 2026
+
+This Privacy Policy describes how Nchos (hereinafter referred to as "the Website") handles information relating to its visitors.
+
+1. Basic Policy
+
+The Website respects the privacy of its visitors and strives to handle information relating to them appropriately.
+
+2. Information We Collect
+
+The Website may collect or use the following information:
+
+- Information transmitted by browsers or servers when accessing the Website
+- Access timestamps, pages viewed, referrer information, and browser or device information
+- Information about visitor preferences, such as theme and privacy settings
+- Information collected through analytics services
+
+In addition, information associated with communications may be processed as necessary to maintain the delivery and security of the Website.
+
+3. Purpose of Use
+
+The Website uses collected information for the following purposes:
+
+- Providing, maintaining, and operating the Website
+- Improving the Website's appearance and functionality
+- Analyzing website traffic and usage trends
+- Preventing unauthorized access and misuse
+- Ensuring the security and stability of the Website
+
+4. Analytics Services
+
+The Website uses the following analytics services to understand how visitors use the Website and to improve its services.
+
+4.1 Google Analytics 4
+
+The Website uses Google Analytics 4 (GA4), an analytics service provided by Google.
+
+GA4 uses technologies such as cookies to collect and analyze information about how visitors use the Website. Such information is handled in accordance with Google's applicable privacy policies and terms.
+
+GA4 is loaded only after a visitor has given consent to Google Analytics 4 through the Website's privacy settings.
+
+For further information, please refer to:
+
+Google Privacy Policy
+https://policies.google.com/privacy
+
+Safeguarding your data with Google Analytics
+https://support.google.com/analytics/answer/7318509?hl=en
+
+4.2 Cloudflare Web Analytics
+
+The Website uses Cloudflare Web Analytics, an analytics service provided by Cloudflare, Inc.
+
+Cloudflare Web Analytics uses technologies such as the browser Performance API to collect and analyze information about page views and website performance.
+
+This service is loaded only after a visitor has given consent to Cloudflare Web Analytics through the Website's privacy settings.
+
+For further information, please refer to:
+
+Cloudflare Web Analytics Documentation
+https://developers.cloudflare.com/web-analytics/about/
+
+5. Cookies and Local Storage
+
+The Website may use technologies such as cookies and LocalStorage to maintain website functionality and preferences, as well as for analytics purposes.
+
+LocalStorage is primarily used to store the following information:
+
+- Website appearance preferences, such as the selected theme
+- Consent preferences for analytics services
+
+This information is stored locally in the visitor's browser.
+
+External services, including Google Analytics 4, may also use cookies and similar technologies.
+
+6. External Services and Disclosure to Third Parties
+
+The Website uses external services for website delivery, security, and analytics.
+
+These service providers handle information in accordance with their respective privacy policies and terms.
+
+Except where required or permitted by applicable laws and regulations, the Website does not provide visitors' information to third parties without their consent.
+
+7. Website Delivery and Security
+
+The Website uses Cloudflare as its infrastructure provider for DNS, CDN, WAF, and other website delivery and security functions.
+
+These functions are used to deliver the Website, protect communications, and prevent unauthorized access. They operate independently of consent settings for analytics services.
+
+Therefore, even if a visitor declines analytics services, communications necessary for website delivery and security may still be processed.
+
+8. Changing Privacy Settings
+
+Visitors can independently choose whether to consent to Google Analytics 4 and Cloudflare Web Analytics through the Website's privacy settings.
+
+These preferences are stored in the browser's LocalStorage and can be changed at any time through the Website's privacy settings.
+
+If consent is withdrawn, the relevant analytics service will no longer be loaded on subsequent page loads. However, information that has already been transmitted before consent was withdrawn cannot be retroactively recalled or deleted through this setting.
+
+9. Changes to This Privacy Policy
+
+The Website may revise this Privacy Policy in response to changes in applicable laws, regulations, or services.
+
+Any revised version will take effect when published on the Website.
+
+10. Language and Prevailing Version
+
+The Japanese version of this Privacy Policy is the original and authoritative version. Translations into English or any other language may also be provided for convenience.
+
+In the event of any discrepancy, inconsistency, or difference in interpretation between the Japanese version and any translated version, regardless of the language, the Japanese version shall prevail and govern.
+
+11. Contact
+
+For inquiries regarding this Privacy Policy, please contact:
+
+Operator: Nchos
+Email: contact@nchos.net
