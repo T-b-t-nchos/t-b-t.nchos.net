@@ -536,7 +536,7 @@ footer .only-emoji {
 }
 
 #privacy-consent-dialog::backdrop {
-    background: rgb(0 0 0 / 18%);
+    background: color-mix(in srgb, var(--ink) 18%, transparent);
 }
 
 .privacy-consent {
