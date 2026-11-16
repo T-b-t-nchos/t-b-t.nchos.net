@@ -8,7 +8,7 @@ on:
       - "**/*.html"
       - "**/*.css"
       - "**/*.js"
-      - "assets/fonts/NotoEmoji-Regular.ttf"
+      - "public/fonts/NotoEmoji-Regular.ttf"
       - ".github/workflows/subset-noto-emoji.yml"
   workflow_dispatch:
 
@@ -43,8 +43,8 @@ jobs:
           from pathlib import Path
 
           root = Path(".").resolve()
-          font = root / "assets/fonts/NotoEmoji-Regular.ttf"
-          output = root / "assets/fonts/NotoEmoji-Regular-subset.woff2"
+          font = root / "public/fonts/NotoEmoji-Regular.ttf"
+          output = root / "public/fonts/NotoEmoji-Regular-subset.woff2"
           text_file = root / "noto-emoji-text.txt"
 
           extensions = {".txt", ".json", ".html", ".css", ".js"}
@@ -124,7 +124,7 @@ jobs:
       - name: Commit generated font
         shell: bash
         run: |
-          git add assets/fonts/NotoEmoji-Regular-subset.woff2
+          git add public/fonts/NotoEmoji-Regular-subset.woff2
 
           if git diff --cached --quiet; then
             echo "No changes to the generated font."
