@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const root = path.resolve(__dirname, "..");
 
-const SITE_URL = "https://t-b-t.nchos.net/";
+const SITE_URL = "https://t-b-t.nchos.net";
 
 const OUTPUT_FILE = path.join(root, "sitemap.xml");
 
@@ -66,11 +66,18 @@ function collectHtmlFiles(directory) {
     return files;
 }
 
+function encodePath(relativePath) {
+    return relativePath
+        .split("/")
+        .map(segment => encodeURIComponent(segment))
+        .join("/");
+}
+
 function htmlPathToUrl(filePath) {
     let relativePath = path.relative(root, filePath).replaceAll(path.sep, "/");
 
     if (relativePath === "index.html") {
-        return `${SITE_URL}`;
+        return `${SITE_URL}/`;
     }
 
     if (relativePath.endsWith("/index.html")) {
@@ -79,7 +86,7 @@ function htmlPathToUrl(filePath) {
         relativePath = relativePath.replace(/\.html$/, "");
     }
 
-    return `${SITE_URL}/${relativePath}`;
+    return `${SITE_URL}/${encodePath(relativePath)}`;
 }
 
 function escapeXml(value) {
