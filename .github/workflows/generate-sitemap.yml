@@ -7,7 +7,7 @@ on:
       - main
     paths:
       - "**/*.html"
-      - "scripts/generate-sitemap.mjs"
+      - ".github/workflows/scripts/generate-sitemap.mjs"
       - ".github/workflows/generate-sitemap.yml"
 
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
           package-manager-cache: false
 
       - name: Generate sitemap
-        run: node scripts/generate-sitemap.mjs
+        run: node .github/workflows/scripts/generate-sitemap.mjs
 
       - name: Commit sitemap
         run: |
