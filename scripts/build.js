@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { generateSitemap } from "./generate-sitemap.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -299,10 +300,6 @@ async function expandIncludes(
 
         const src = parseIncludeAttributes(attributes);
 
-        if (closingMatch[0].trim() !== "</include>") {
-            // 大文字・小文字の違いは許容するため、ここでは判定しない
-        }
-
         const includeContentEnd =
             openingEnd + closingMatch.index;
 
@@ -457,6 +454,9 @@ async function build() {
             DIST_DIR
         );
     }
+
+    // Sitemapを生成
+    await generateSitemap();
 
     console.log("\nBuild completed successfully.");
     console.log(`Output: ${path.relative(ROOT_DIR, DIST_DIR)}/`);
