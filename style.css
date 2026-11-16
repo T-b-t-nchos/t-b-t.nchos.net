@@ -208,15 +208,15 @@ a {
 }
 
 
-/*whoami (section)*/
+/*text section (section)*/
 /*-----------------------------------------------------------------------------------------*/
-.whoami-content {
+.text-content {
     position: relative;
     margin-left: 1rem;
     padding-left: 1.5rem;
 }
 
-.whoami-content::before {
+.text-content::before {
     content: "";
     position: absolute;
     z-index: 100;
@@ -227,7 +227,7 @@ a {
     background: var(--line);
 }
 
-.whoami-summary {
+.text-content-lv1 {
     margin: 0;
     font-size: clamp(1rem, 1.2vw, 1.2rem);
     font-weight: 400;
@@ -235,7 +235,7 @@ a {
     letter-spacing: 0.06em;
 }
 
-.whoami-detail {
+.text-content-lv2 {
     color: var(--line);
     padding-top: 0.9rem;
     line-height: 1.2;
