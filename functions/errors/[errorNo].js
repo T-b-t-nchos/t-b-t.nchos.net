@@ -7,7 +7,7 @@ export async function onRequest(context) {
      * Load the generic error page template.
      */
     const templateUrl = new URL(
-        "/errors/template.html",
+        "/src/pages/errors/template.html",
         request.url
     );
 

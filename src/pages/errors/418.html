@@ -69,86 +69,8 @@
             </section>
         </main>
 
-        <footer>
-            <a class="hv-ul only-emoji" id="toggle-light-dark" href="#toggle-light-dark">💡</a> |
-            <a class="hv-ul" href="https://github.com/T-b-t-nchos/T-b-t-nchos.github.io">Source of this page</a> |
-            <a class="hv-ul" href="#privacy-settings" id="privacy-open-settings">Privacy Settings</a> |
-            <a class="hv-ul" href="/privacy/">Privacy Policy</a> |
-            <a class="hv-ul only-emoji" href="/teapot">🫖</a>
-            <p class="copyright">© 2026 T-b-t-nchos. All rights reserved.</p>
-        </footer>
-
-        <!-- Privacy Consent -->
-        <dialog id="privacy-consent-dialog" aria-labelledby="privacy-consent-title">
-            <div class="privacy-consent">
-                <div class="privacy-consent__description">
-                    <p>
-                        <span class="privacy-consent__en" lang="en"> We use Google Analytics to understand and improve how this site is used. </span>
-                        <span lang="ja"> 当サイトでは、サイトの利用状況を把握し、改善するためにGoogle Analyticsを利用しています。 </span>
-                    </p>
-                    <p>
-                        <span class="privacy-consent__en" lang="en"> Google Analytics may use cookies and similar technologies to collect usage information. </span>
-                        <span lang="ja"> Google AnalyticsではCookieなどを利用してアクセス情報を収集する場合があります。 </span>
-                    </p>
-                    <p>
-                        <span class="privacy-consent__en" lang="en"> Analytics is optional. Declining will not affect your use of this site. </span>
-                        <span lang="ja"> 解析への協力は任意です。拒否してもサイトの利用に影響はありません。 </span>
-                    </p>
-                    <p>
-                        <span class="privacy-consent__en" lang="en"> For more information, see our <a class="hv-ul" href="/privacy/">Privacy Policy</a>. </span>
-                        <span lang="ja"> 詳細は<a class="hv-ul" href="/privacy/">プライバシーポリシー</a>をご確認ください。 </span>
-                    </p>
-                </div>
-
-                <div class="privacy-consent__actions">
-                    <button type="button" id="privacy-accept">
-                        <span class="privacy-consent__button-en" lang="en"> Accept All </span>
-                        <span class="privacy-consent__button-ja" lang="ja"> すべて許可する </span>
-                    </button>
-                    <button type="button" id="privacy-reject">
-                        <span class="privacy-consent__button-en" lang="en"> Reject </span>
-                        <span class="privacy-consent__button-ja" lang="ja"> 拒否する </span>
-                    </button>
-                    <button type="button" id="privacy-customize" aria-expanded="false" >
-                        <span class="privacy-consent__button-en" lang="en"> Customize Settings </span>
-                        <span class="privacy-consent__button-ja" lang="ja"> 設定をカスタマイズ </span>
-                    </button>
-                </div>
-
-                <section id="privacy-settings" hidden>
-                    <header class="privacy-consent__settings-header">
-                        <span class="privacy-consent__en" lang="en"> Analytics Settings </span>
-                        <h3>解析設定</h3>
-                    </header>
-
-                    <label class="privacy-consent__option">
-                        <input type="checkbox" id="privacy-google-analytics">
-
-                        <span class="privacy-consent__option-content">
-                            <strong>Google Analytics 4</strong>
-                            <span class="privacy-consent__en" lang="en"> Used to analyze site traffic. </span>
-                            <span lang="ja"> アクセス状況の分析に利用します。 </span>
-                        </span>
-                    </label>
-
-                    <label class="privacy-consent__option">
-                        <input type="checkbox" id="privacy-cloudflare-analytics">
-
-                        <span class="privacy-consent__option-content">
-                            <strong>Cloudflare Web Analytics</strong>
-                            <span class="privacy-consent__en" lang="en"> Used to analyze website performance and visitor traffic. </span>
-                            <span lang="ja"> サイトのパフォーマンスやアクセス状況の分析に利用します。 </span>
-                        </span>
-                    </label>
-
-                    <button type="button" id="privacy-save">
-                        <span class="privacy-consent__button-en" lang="en"> Save Settings </span>
-                        <span class="privacy-consent__button-ja" lang="ja"> 設定を保存 </span>
-                    </button>
-                </section>
-            </div>
-        </dialog>
-
+        <include src="../../components/footer.html"></include>
+        <include src="../../components/privacy-consent.html"></include>
 
         <script>
             //418 particles
