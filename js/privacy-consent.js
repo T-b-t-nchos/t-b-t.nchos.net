@@ -3,6 +3,8 @@
 
     const GA4_ID = "G-XXXXXXXXXX";
 
+    const CLOUDFLARE_BEACON_TOKEN = "d9b7ee70a35a42acb8ae9248e2b7f7a8";
+
     const STORAGE_KEY = "site-privacy-consent";
     const CONSENT_VERSION = 1;
 
@@ -14,7 +16,10 @@
     const saveButton = document.getElementById("privacy-save");
 
     const settings = document.getElementById("privacy-settings");
-    const analyticsCheckbox = document.getElementById("privacy-analytics");
+
+    const googleAnalyticsCheckbox = document.getElementById("privacy-google-analytics");
+    const cloudflareAnalyticsCheckbox = document.getElementById("privacy-cloudflare-analytics");
+
     const openSettingsButton = document.getElementById("privacy-open-settings");
 
     let consent = null;
@@ -31,7 +36,8 @@
 
             if (
                 parsed.version !== CONSENT_VERSION ||
-                typeof parsed.analytics !== "boolean"
+                typeof parsed.googleAnalytics !== "boolean" ||
+                typeof parsed.cloudflareAnalytics !== "boolean"
             ) {
                 return null;
             }
@@ -42,10 +48,11 @@
         }
     }
 
-    function saveConsent(analytics) {
+    function saveConsent(googleAnalytics, cloudflareAnalytics) {
         consent = {
             version: CONSENT_VERSION,
-            analytics,
+            googleAnalytics,
+            cloudflareAnalytics,
             updatedAt: new Date().toISOString()
         };
 
@@ -96,6 +103,36 @@
         document.head.appendChild(script);
     }
 
+    function loadCloudflareAnalytics() {
+        if (window.__siteCloudflareAnalyticsLoaded) {
+            return;
+        }
+
+        window.__siteCloudflareAnalyticsLoaded = true;
+
+        const script = document.createElement("script");
+
+        script.type = "module";
+        script.src =
+            "https://static.cloudflareinsights.com/beacon.min.js";
+
+        script.dataset.cfBeacon = JSON.stringify({
+            token: CLOUDFLARE_BEACON_TOKEN
+        });
+
+        document.head.appendChild(script);
+    }
+
+    function loadAnalytics() {
+        if (consent?.googleAnalytics === true) {
+            loadGA4();
+        }
+
+        if (consent?.cloudflareAnalytics === true) {
+            loadCloudflareAnalytics();
+        }
+    }
+
     function openDialog() {
         if (!dialog.open) {
             dialog.showModal();
@@ -109,30 +146,41 @@
     }
 
     function updateSettings() {
-        analyticsCheckbox.checked = consent?.analytics === true;
+        googleAnalyticsCheckbox.checked =
+            consent?.googleAnalytics === true;
+
+        cloudflareAnalyticsCheckbox.checked =
+            consent?.cloudflareAnalytics === true;
     }
 
-    function applyConsent(analytics) {
-        const wasGranted = consent?.analytics === true;
+    function applyConsent(googleAnalytics, cloudflareAnalytics) {
+        const wasGoogleAnalyticsGranted =
+            consent?.googleAnalytics === true;
 
-        saveConsent(analytics);
+        const wasCloudflareAnalyticsGranted =
+            consent?.cloudflareAnalytics === true;
 
-        if (analytics) {
-            loadGA4();
-        } else if (wasGranted) {
+        saveConsent(googleAnalytics, cloudflareAnalytics);
+
+        const revoked =
+            (wasGoogleAnalyticsGranted && !googleAnalytics) ||
+            (wasCloudflareAnalyticsGranted && !cloudflareAnalytics);
+
+        if (revoked) {
             window.location.reload();
             return;
         }
 
+        loadAnalytics();
         closeDialog();
     }
 
     acceptButton.addEventListener("click", () => {
-        applyConsent(true);
+        applyConsent(true, true);
     });
 
     rejectButton.addEventListener("click", () => {
-        applyConsent(false);
+        applyConsent(false, false);
     });
 
     customizeButton.addEventListener("click", () => {
@@ -156,7 +204,10 @@
     });
 
     saveButton.addEventListener("click", () => {
-        applyConsent(analyticsCheckbox.checked);
+        applyConsent(
+            googleAnalyticsCheckbox.checked,
+            cloudflareAnalyticsCheckbox.checked
+        );
     });
 
     openSettingsButton.addEventListener("click", (event) => {
@@ -172,16 +223,15 @@
 
     consent = loadConsent();
 
-    if (consent?.analytics === true) {
-        loadGA4();
-    }
-
-    if (!consent) {
+    if (consent) {
+        loadAnalytics();
+    } else {
         openDialog();
     }
+
+    updateSettings();
 
     dialog.addEventListener("cancel", (event) => {
         event.preventDefault();
     });
 })();
-

@@ -687,9 +687,12 @@ footer .only-emoji {
     padding: 1.2rem 0;
 
     border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
 
     cursor: pointer;
+}
+
+.privacy-consent__option:last-of-type {
+    border-bottom: 1px solid var(--line);
 }
 
 .privacy-consent__option input {
