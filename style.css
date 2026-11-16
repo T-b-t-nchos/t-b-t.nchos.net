@@ -734,6 +734,11 @@ footer .only-emoji {
     display: none;
 }
 
+#privacy-save:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+}
+
 
 /*other*/
 /*-----------------------------------------------------------------------------------------*/
