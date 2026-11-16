@@ -1,7 +1,7 @@
 (() => {
     "use strict";
 
-    const GA4_ID = "G-XXXXXXXXXX";
+    const GA4_ID = "G-SNQW64WSBB";
 
     const CLOUDFLARE_BEACON_TOKEN = "d9b7ee70a35a42acb8ae9248e2b7f7a8";
 
