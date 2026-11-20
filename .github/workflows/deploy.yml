@@ -13,8 +13,6 @@ permissions:
 
 jobs:
   cf-pages:
-    environment:
-      name: cloudflare-pages
     runs-on: ubuntu-latest
 
     steps:
